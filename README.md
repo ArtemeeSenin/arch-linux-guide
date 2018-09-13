@@ -18,7 +18,7 @@
 
 Get disks list `lsblk`.
 
-Prepare disks `sgdisk -Z /dev/nvme0n1`
+Prepare disks `sgdisk -Z /dev/nvme0n1`. The key -z or --zap is used to zero out all GPT and MBR data structures. Use this option if you want to completely erase the GPT data structures so that the disk can be used as an MBR disk without concern that it might contain stray GPT data. 
 
 ### Partition disks with cfdisk utility
 
