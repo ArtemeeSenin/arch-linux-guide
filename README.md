@@ -66,6 +66,16 @@ Enable Arch multilib:
 Include = /etc/pacman.d/mirrorlist
 ```
 
+Enable Yaourt Package Tool support `nano /etc/pacman.conf` insert 
+
+```
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+```
+
+Update database mirrors and packages `pacman -Syu` 
+
 Install necessary `pacstrap /mnt base base-devel linux linux-headers intel-ucode`
 
 Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /mnt/etc/fstab`
@@ -78,7 +88,7 @@ Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /m
 
 ### Set the time zone
 
-`ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime`
+`ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime /etc/localtime`
 
 `hwclock --systohc --utc`
 
@@ -89,6 +99,8 @@ Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /m
 `locale-gen`
 
 `echo 'LANG=en_US.UTF-8' > /etc/locale.conf`
+
+`export LANG=en_US.UTF-8`
 
 `passwd`
 
