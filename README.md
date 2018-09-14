@@ -69,3 +69,26 @@ Include = /etc/pacman.d/mirrorlist
 Install necessary `pacstrap /mnt base base-devel linux linux-headers intel-ucode`
 
 Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /mnt/etc/fstab`
+
+## Configure the system
+
+`arch-chroot /mnt`
+
+`echo "archbox" > /etc/hostname`
+
+### Set the time zone
+
+`ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime`
+
+`hwclock --systohc --utc`
+
+### Locale
+
+`echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8' > /etc/locale.gen`
+
+`locale-gen`
+
+`echo 'LANG=en_US.UTF-8' > /etc/locale.conf`
+
+`passwd`
+
