@@ -6,7 +6,7 @@
 
 ## Network
 
-`menu-wifi` opens network list
+`wifi-menu` opens network list
 
 `ping -c 3 archlinux.org` test connection
 
@@ -23,3 +23,30 @@ Prepare disks `sgdisk -Z /dev/nvme0n1`. The key -z or --zap is used to zero out 
 ### Partition disks with cfdisk utility
 
 `cfdisk /dev/nvme0n1`
+
+#### Make 4 partiotions 
+
+* 300M EFI System
+* 16.4G Linux swap (for hibernation storage)
+* 24G Linux filesystem (Root)
+* Rest of space Linux filesystem (Home)
+
+`[ Write ]` then type `yes`. `[ Quit ]`.
+
+#### Format partiotions
+
+`mkfs.fat -F32 /dev/nvme0n1p1` - EFI
+
+`mkfs.ext4 /dev/nvme0n1p3` - Root, Home
+
+`mkswap /dev/nvme0n1p2` - Swap. `swapon /dev/nvme0n1p2`
+
+#### Mount partiotions
+
+`mount /dev/nvme0n1p3 /mnt` - Root
+
+`mkdir /mnt/{boot,home}` - prepare folders
+
+`mount /dev/nvme0n1p1 /mnt/boot` - EFI
+
+`mount /dev/nvme0n1p4 /mnt/home/` - Home
