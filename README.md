@@ -37,7 +37,7 @@ Prepare disks `sgdisk -Z /dev/nvme0n1`. The key -z or --zap is used to zero out 
 
 `mkfs.fat -F32 /dev/nvme0n1p1` - EFI
 
-`mkfs.ext4 /dev/nvme0n1p3` - Root, Home
+`mkfs.ext4 -L Root /dev/nvme0n1p3` - Root, same for Home
 
 `mkswap /dev/nvme0n1p2` - Swap. `swapon /dev/nvme0n1p2`
 
@@ -50,3 +50,5 @@ Prepare disks `sgdisk -Z /dev/nvme0n1`. The key -z or --zap is used to zero out 
 `mount /dev/nvme0n1p1 /mnt/boot` - EFI
 
 `mount /dev/nvme0n1p4 /mnt/home/` - Home
+
+Check all is ok `lsblk -o name,mountpoint,label,size,uuid`
