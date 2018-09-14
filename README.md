@@ -57,25 +57,6 @@ Check all is ok `lsblk -o name,mountpoint,label,size,uuid`
 
 Select narest mirror `nano /etc/pacman.d/mirrorlist`
 
-Enable Arch multilib:
-
-`nano /etc/pacman.conf` and uncomment
-
-```
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
-
-Enable Yaourt Package Tool support `nano /etc/pacman.conf` insert 
-
-```
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/$arch
-```
-
-Update database mirrors and packages `pacman -Syu` 
-
 Install necessary `pacstrap /mnt base base-devel linux linux-headers intel-ucode`
 
 Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /mnt/etc/fstab`
@@ -103,4 +84,23 @@ Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /m
 `export LANG=en_US.UTF-8`
 
 `passwd`
+
+Enable Arch multilib:
+
+`nano /etc/pacman.conf` and uncomment
+
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+Enable Yaourt Package Tool support `nano /etc/pacman.conf` insert 
+
+```
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+```
+
+Update database mirrors and packages `pacman -Syu` 
 
