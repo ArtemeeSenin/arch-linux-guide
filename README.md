@@ -52,3 +52,20 @@ Prepare disks `sgdisk -Z /dev/nvme0n1`. The key -z or --zap is used to zero out 
 `mount /dev/nvme0n1p4 /mnt/home/` - Home
 
 Check all is ok `lsblk -o name,mountpoint,label,size,uuid`
+
+## Install OS
+
+Select narest mirror `nano /etc/pacman.d/mirrorlist`
+
+Enable Arch multilib:
+
+`nano /etc/pacman.conf` and uncomment
+
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+Install necessary `pacstrap /mnt base base-devel linux linux-headers intel-ucode`
+
+Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /mnt/etc/fstab`
