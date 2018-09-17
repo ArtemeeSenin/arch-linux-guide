@@ -85,22 +85,38 @@ Generate fstab `genfstab -U -p /mnt >> /mnt/etc/fstab` and inspect fstab `cat /m
 
 `passwd`
 
-Enable Arch multilib:
-
-`nano /etc/pacman.conf` and uncomment
+Hosts `sudo nano /etc/hosts`
 
 ```
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
-
-Enable Yaourt Package Tool support `nano /etc/pacman.conf` insert 
-
-```
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/$arch
+127.0.0.1 localhost
+::1 localhost
+127.0.0.1 archlinux.localdomain archlinux
 ```
 
 Update database mirrors and packages `pacman -Syu` 
 
+## Set up  desktop environment
+
+Install graphic drivers `sudo pacman -S xf86-video-intel`
+
+Install XOrg `sudo pacman -S xorg-server xorg-utils xorg-apps`
+
+Reboot and configure XOrg `Xorg :0 -configure`
+Then comment all Nvidia entries
+
+```
+nano xorg.conf.new 
+sudo cp /home/artemee/xorg.conf.new /etc/X11/xorg.conf
+```
+
+
+Install KDE Plasma
+
+```
+sudo pacman -S plasma
+sudo pacman -S kde-applications
+sudo pacman -S sddm
+
+sudo systemctl status sddm
+sudo systemctl enable sddm
+```
