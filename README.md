@@ -120,3 +120,10 @@ sudo pacman -S sddm
 sudo systemctl status sddm
 sudo systemctl enable sddm
 ```
+
+## Postinstall
+
+### Nvm
+
+Install [nvm](https://github.com/creationix/nvm) `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash`
+Create .nvmrc file `echo "node" > .nvmrc # to default to the latest version`
