@@ -15,8 +15,8 @@ echo 'archlinux' > /etc/hostname
 pacman -S networkmanager
 systemctl enable NetworkManager
 systemctl enable dhcpcd
-systemctl enable dhcpcd@eno1.service
-pacman -S dialog
+#systemctl enable dhcpcd@eno1.service
+pacman -S dialog iw
 wifi-menu
 netctl enable $(ls /etc/netctl | grep wlo1)
 
@@ -27,6 +27,6 @@ bootctl install
 echo -n 'default arch\neditor 0\ntimeout 0' > /boot/loader/loader.conf
 echo -n'title   ArchLinux\nlinux   /vmlinuz-linux\ninitrd  /intel-ucode.img\ninitrd  /initramfs-linux.img\noptions root=PARTUUID='$(blkid -s PARTUUID -o value /dev/nvme0n1p2' rw spectre_v2=off pti=off modprobe.blacklist=nouveau modprobe.blacklist=nvidia' > /boot/loader/entries/arch.conf
 
-useradd -m -G audio,lp,optical,power,storage,video,wheel -s /bin/bash artemee
+useradd -m -G audio,power,storage,video,wheel -s /bin/bash artemee
 passwd artemee
 if ! grep '^%wheel' /etc/sudoers ; then echo '%wheel      ALL=(ALL) ALL' >> /etc/sudoers ; fi
