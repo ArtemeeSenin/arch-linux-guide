@@ -3,7 +3,13 @@ sudo pacman -S plasma kde-applications sddm
 
 Xorg :0 -configure
 
+echo "exec startkde" > ~/.xinitrc
 sudo systemctl enable sddm.service
+sudo systemct disable dhcpcd
+
+reboot
+
+sudo systemctl enable NetworkManager 
 
 sudo ip link set wlo1 up
 sudo systemctl enable NetworkManager
