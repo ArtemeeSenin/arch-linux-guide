@@ -21,8 +21,8 @@ Installation process:
    * Initramfs
    * Root password
    * Boot loader
-4. Reboot
-5. Post-installation
+   * Reboot 
+4. Post-installation
 
 ## Verify boot mode
 
