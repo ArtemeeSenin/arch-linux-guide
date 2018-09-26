@@ -1,5 +1,29 @@
 # ArchLinux installation guide
 
+Installation process:
+
+1. Pre-installation
+   * Verify boot mode
+   * Connect to the internet
+   * Update system clock
+   * Partition disks
+   * Format partitions
+   * Mount the file systems
+2. Installation
+   * Select mirrors
+   * Install the base packages
+3. Configure system
+   * Fstab
+   * Chroot
+   * Time zone
+   * Localization
+   * Network config
+   * Initramfs
+   * Root password
+   * Boot loader
+4. Reboot
+5. Post-installation
+
 ## Verify boot mode
 
 `ls /sys/firmware/efi/efivars` or `efivar -l`
