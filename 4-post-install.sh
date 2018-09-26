@@ -7,6 +7,8 @@ echo "exec startkde" > ~/.xinitrc
 sudo systemctl enable sddm.service
 sudo systemct disable dhcpcd
 
+sudo pacman -S xf86-input-synaptics
+
 reboot
 
 sudo systemctl enable NetworkManager 
