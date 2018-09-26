@@ -23,6 +23,9 @@ Installation process:
    * Boot loader
    * Reboot 
 4. Post-installation
+   * Install XOrg
+   * Install KDE and kde-applications
+   * Install Sddm
 
 ## Verify boot mode
 
