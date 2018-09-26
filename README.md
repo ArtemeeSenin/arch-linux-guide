@@ -51,7 +51,7 @@ Prepare disks `sgdisk -Z /dev/nvme0n1`. The key -z or --zap is used to zero out 
 #### Make 4 partiotions 
 
 * 300M EFI System
-* 16.4G Linux swap (for hibernation storage)
+* 16.4G Linux swap (for hibernation storage) - Optional
 * 24G Linux filesystem (Root)
 * Rest of space Linux filesystem (Home)
 
