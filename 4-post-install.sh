@@ -59,4 +59,13 @@ pikaur -S powerline-fonts
 curl -L https://github.com/caarlos0/msfonts/raw/master/install.sh | sudo sh
 
 # misc soft
-sudo pacman -S vlc transmission-gtk
+sudo pacman -S vlc transmission-gtk openssh xsel
+
+# ssh
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+# github ssh
+cat ~/.ssh/id_rsa | xsel -b -i
+ssh -T git@github.com
+
