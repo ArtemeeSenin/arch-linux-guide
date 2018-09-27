@@ -51,6 +51,8 @@ sudo echo -e 'Section "InputClass"\n        Identifier "system-keyboard"\n      
 
 #install bluetooth
 sudo pacman -S bluez bluez-utils blueman pulseaudio pulseaudio-bluetooth
+systemctl enable bluetooth.service
+systemctl start bluetooth.service
 
 # fonts
 pikaur -S powerline-fonts
