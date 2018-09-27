@@ -47,6 +47,8 @@ echo -e 'export NVM_DIR="$HOME/.nvm"\n[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/n
 setxkbmap -layout us,ru -option 'grp:caps_toggle,grp_led:caps'
 setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'
 
+sudo echo -e 'Section "InputClass"\n        Identifier "system-keyboard"\n        MatchIsKeyboard "on"\n        Option "XkbLayout" "us,ru"\n        Option "XkbModel" "pc105"\n        Option "XkbOptions" "grp:alt_shift_toggle,grp:caps_toggle,grp_led:caps"\nEndSection' > /etc/X11/xorg.conf.d/00-keyboard.conf
+
 #install bluetooth
 sudo pacman -S bluez bluez-utils blueman pulseaudio pulseaudio-bluetooth
 
