@@ -57,3 +57,6 @@ systemctl start bluetooth.service
 # fonts
 pikaur -S powerline-fonts
 curl -L https://github.com/caarlos0/msfonts/raw/master/install.sh | sudo sh
+
+# misc soft
+sudo pacman -S vlc transmission-gtk
